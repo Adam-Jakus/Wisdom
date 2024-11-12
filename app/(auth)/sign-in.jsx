@@ -45,8 +45,8 @@ const SignIn = () => {
         isLoading={isSubmitting}
         />
         <View className="justify-center pt-5 flex-row gap-2">
-          <Link href="/sign-up">Forgot Password?</Link>
-          <Text>Contact your manager</Text>
+          <Text className="text-white">Forgot Password?</Text>
+          <Link href='../../home' className="text-white">Click to Nav</Link>
         </View>
         </View>
       </ScrollView>

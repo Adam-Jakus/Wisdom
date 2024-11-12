@@ -4,6 +4,7 @@ import {Link, Redirect, router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
+
 import {images} from '../constants';
 import CustomButton from '../components/CustomButton';
 
@@ -17,7 +18,7 @@ export default function App() {
                     resizeMode="contain"
                     />
                     <Text 
-                    className="text-3xl text-white font-bold text-center"
+                    className="text-3xl text-white font-bold text-center mt-25"
                     style={{color: "white"}}>Welcome to Wisdom Mobile</Text>
                     <CustomButton title="continue to signon"
                     handlePress={() => router.push('/sign-in')}
@@ -28,8 +29,6 @@ export default function App() {
             <StatusBar backgroundColor='#161622'
             style='light'/>
                 
-                
-            
         </SafeAreaView>
     );
 }
