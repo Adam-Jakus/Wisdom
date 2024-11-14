@@ -5,7 +5,7 @@ import {icons} from '../../constants';
 import { GestureHandlerRootView, PanGestureHandler, ScrollView, Swipeable } from 'react-native-gesture-handler';
 import Animated , { useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
@@ -51,7 +51,7 @@ function Logout() {
   return alert("Logging out...")
 }
 
-// menu and routing
+// menu and routing... vision is to have a footer and header be rendered as template for all pages
 const Drawer = createDrawerNavigator();
 
 function HamburgerMenu({ navigation }) {
@@ -90,7 +90,7 @@ function HamburgerMenu({ navigation }) {
 // while active tab set color to grayed out?
 const TabsLayout = () => {
   return (
-  
+  <NavigationIndependentTree>
     <NavigationContainer independent={true} className="bg-primary">
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <HamburgerMenu {...props} />}>
         <Drawer.Screen name="Home" component={Home}/>
@@ -101,7 +101,7 @@ const TabsLayout = () => {
         <Drawer.Screen name="Settings" component={Settings}/>
       </Drawer.Navigator>
     </NavigationContainer>
-  
+  </NavigationIndependentTree>
   )
 }
 

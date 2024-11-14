@@ -7,7 +7,10 @@ const Notifications = () => {
     <SafeAreaView className="bg-primary h-full">
       <View className="w-full justify-center items-center h-full bg-primary">
           <Text className="text-white text-2xl top-0 absolute mt-5">Notifications</Text>
-      </View>      
+      </View>
+      <ScrollView className="h-full">
+        <Text className="text-white">Notifications go here</Text>
+      </ScrollView>  
     </SafeAreaView>
   )
 }
