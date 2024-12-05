@@ -5,9 +5,10 @@ import {Link} from 'expo-router'
 
 import { images } from '../../constants';
 import FormField from '../../components/FormField';
-import CustomButton from '../../components/CustomButton'
+import CustomButton from '../../components/CustomButton';
 
 const SignIn = () => {
+
   const [form, setForm] = useState({
     email: '',
     password: ''
@@ -19,7 +20,7 @@ const SignIn = () => {
   }
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="h-full bg-primary">
       <ScrollView>
         <View className="w-full justify-center h-full px-4 my-6">
         <Image source={images.logo} resizeMode='contain' className="w-full "/>

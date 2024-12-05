@@ -4,21 +4,17 @@ import { Tabs, Redirect } from 'expo-router'
 import {icons} from '../../constants';
 import { GestureHandlerRootView, PanGestureHandler, ScrollView, Swipeable } from 'react-native-gesture-handler';
 import Animated , { useAnimatedStyle, withSpring } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {
-  createStaticNavigation,
-  useNavigation,
-} from '@react-navigation/native';
+
 import Home from './home';
 import Tracker from './tracker';
 import Notifications from './notifications';
 import Requests from './requests';
 import Profile from './profile';
 import Settings from './settings';
-import Index from '../index'
+import { StatusBar } from 'react-native';
+import { darkColors } from '@rneui/base';
 
 //test stylesheet temporary
 const styles = StyleSheet.create({
@@ -26,11 +22,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#8b9cb3',
   },
   hamburger: {
     width: 30,
     height: 24,
     justifyContent: 'space-between',
+    
   },
   line: {
     width: '100%',
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     width: 250, // Adjust width as needed
-    backgroundColor: 'white',
+    
   },
 });
 
@@ -62,11 +60,12 @@ function HamburgerMenu({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={darkColors}/>
       <TouchableOpacity onPress={() => setIsOpen(!isOpen)}>
     
       </TouchableOpacity>
       <Text className="text-2xl" 
-      onPress={() => navigation.navigate('Home')}>Home</Text>
+      onPress={() => navigation.navigate('Home')}>Dashboard</Text>
       <Text className="text-2xl" 
       onPress={() => navigation.navigate('Tracker')}>Tracker</Text>
       <Text className="text-2xl" 
@@ -87,21 +86,23 @@ function HamburgerMenu({ navigation }) {
     </View>
   );
 }
-// while active tab set color to grayed out?
+// while active tab/screen set color to grayed out?
 const TabsLayout = () => {
   return (
+    
   <NavigationIndependentTree>
-    <NavigationContainer independent={true} className="bg-primary">
+    <NavigationContainer independent={true}>
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <HamburgerMenu {...props} />}>
-        <Drawer.Screen name="Home" component={Home}/>
-        <Drawer.Screen name="Tracker" component={Tracker}/>
-        <Drawer.Screen name="Notifications" component={Notifications}/>
-        <Drawer.Screen name="Requests" component={Requests}/>
-        <Drawer.Screen name="Profile" component={Profile}/>
-        <Drawer.Screen name="Settings" component={Settings}/>
+        <Drawer.Screen name="Home" component={Home} options={{title: 'Wisdom Mobile'}} />
+        <Drawer.Screen name="Tracker" component={Tracker} options={{title: 'Wisdom Mobile'}}/>
+        <Drawer.Screen name="Notifications" component={Notifications} options={{title: 'Wisdom Mobile'}}/>
+        <Drawer.Screen name="Requests" component={Requests} options={{title: 'Wisdom Mobile'}}/>
+        <Drawer.Screen name="Profile" component={Profile} options={{title: 'Wisdom Mobile'}}/>
+        <Drawer.Screen name="Settings" component={Settings} options={{title: 'Wisdom Mobile'}}/>
       </Drawer.Navigator>
     </NavigationContainer>
   </NavigationIndependentTree>
+  
   )
 }
 
