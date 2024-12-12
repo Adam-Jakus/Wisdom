@@ -50,7 +50,10 @@ function Logout() {
 }
 
 // menu and routing... vision is to have a footer and header be rendered as template for all pages
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator({
+  edgeWidth: 0,
+  Swipeable: false, gestureEnabled:false
+});
 
 function HamburgerMenu({ navigation }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -90,10 +93,11 @@ function HamburgerMenu({ navigation }) {
 const TabsLayout = () => {
   return (
     
-  <NavigationIndependentTree>
+  <NavigationIndependentTree options={{gestureEnabled: false}}>
     <NavigationContainer independent={true}>
-      <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <HamburgerMenu {...props} />}>
-        <Drawer.Screen name="Home" component={Home} options={{title: 'Wisdom Mobile'}} />
+      <Drawer.Navigator screenOptions={{swipeEnabled: false}} initialRouteName="Home" drawerContent={(props) => 
+        <HamburgerMenu {...props} /> } >
+        <Drawer.Screen name="Home" component={Home} options={{title: 'Wisdom Mobile', gestureEnabled: false}} />
         <Drawer.Screen name="Tracker" component={Tracker} options={{title: 'Wisdom Mobile'}}/>
         <Drawer.Screen name="Notifications" component={Notifications} options={{title: 'Wisdom Mobile'}}/>
         <Drawer.Screen name="Requests" component={Requests} options={{title: 'Wisdom Mobile'}}/>

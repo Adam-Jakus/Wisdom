@@ -52,7 +52,7 @@ const Requests = () => {
           <ScrollView className="min-w-[300px] border dark:border-secondary max-h-[350px] ">
 
           
-
+          {/* this will be dynamically rendered from db context but just labels for demo */}
           <View className="flex flex-row border dark:border-secondary justify-evenly">
             <View className="flex flex-col border dark:border-secondary">
               <Text className="dark:text-secondary m-[10]">DATA</Text>

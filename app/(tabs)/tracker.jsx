@@ -34,7 +34,7 @@ const Tracker = () => {
         )}
         <CustomSwitch onPress={startOnline} className="m-5"/>
 
-
+        {/* temporary static placeholders */}
         <Text className="dark:text-secondary text-2xl m-5">This week:</Text>
           <Text className="dark:text-secondary text-xl">DATA</Text>
         <Text className="dark:text-secondary text-2xl m-5">Current Session:</Text>
